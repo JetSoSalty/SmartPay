@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SmartPay.Models
@@ -24,7 +20,7 @@ namespace SmartPay.Models
             // When creating the RoleManager object, you pass in (as a parameter) a new RoleStore object. 
             var roleMgr = new RoleManager<IdentityRole>(roleStore);
 
-            // Then, you create the "canEdit" role if it doesn't already exist.
+            // Then, you create the "admin" role if it doesn't already exist.
             if (!roleMgr.RoleExists("admin"))
             {
                 IdRoleResult = roleMgr.Create(new IdentityRole { Name = "admin" });
@@ -42,8 +38,8 @@ namespace SmartPay.Models
             };
             IdUserResult = userMgr.Create(appUser, "P@$$w0rd");
 
-            // If the new "canEdit" user was successfully created, 
-            // add the "canEdit" user to the "canEdit" role. 
+            // If the new "admin" user was successfully created, 
+            // add the "admin" user to the "canEdit" role. 
             if (!userMgr.IsInRole(userMgr.FindByEmail("test@somewhere.com").Id, "admin"))
             {
                 IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("test@somewhere.com").Id, "admin");
