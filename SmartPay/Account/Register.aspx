@@ -7,6 +7,7 @@
     </p>
 
     <div class="form-horizontal">
+        <br />
         <h4>Create a new account</h4>
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
@@ -38,7 +39,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-outline-primary" />
             </div>
         </div>
     </div>
