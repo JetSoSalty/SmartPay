@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ScotiaBank">
+  <DataContextMoniker Name="/ScotiaBankDataContext" />
+  <nestedChildShapes>
+    <classShape Id="fdc31a69-0d10-49a3-a5cb-092248db5cf5" absoluteBounds="5.375, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ScotiaBankDataContext/transaction_history" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ee5dff57-e421-42ef-8db0-aba6bc0eefa9" absoluteBounds="5.3900000000000006, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="da7a2489-b620-49a6-bea7-3eb06a057559" absoluteBounds="7.875, 1.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ScotiaBankDataContext/transaction_type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bb564b48-8ba0-4f7a-b6b1-55b79b696e27" absoluteBounds="7.89, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.875 : 2.09699625651042); (7.375 : 2.09699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ScotiaBankDataContext/transaction_type/transaction_type_transaction_history" />
+      <nodes>
+        <classShapeMoniker Id="da7a2489-b620-49a6-bea7-3eb06a057559" />
+        <classShapeMoniker Id="fdc31a69-0d10-49a3-a5cb-092248db5cf5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="148b5114-25ea-4f35-9f23-2381907d883c" absoluteBounds="2.625, 3.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ScotiaBankDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae3958ad-f2b4-4aa1-8872-815829b8693a" absoluteBounds="2.64, 3.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d5f4502c-83de-4dda-af6d-c8159d7bcd59" absoluteBounds="5.875, 4, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ScotiaBankDataContext/Branch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b4079707-d93f-45e8-a46e-875aa1cc276a" absoluteBounds="5.89, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3d74ce25-125b-407a-8a0c-3102a1d75134" absoluteBounds="3.125, 6, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ScotiaBankDataContext/BranchCustomer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1770fb89-a6de-4749-904f-c9e7bf867046" absoluteBounds="3.1399999999999997, 6.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 5.23484537760417); (4.90625 : 5.23484537760417); (4.90625 : 6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ScotiaBankDataContext/Branch/Branch_BranchCustomer" />
+      <nodes>
+        <classShapeMoniker Id="d5f4502c-83de-4dda-af6d-c8159d7bcd59" />
+        <classShapeMoniker Id="3d74ce25-125b-407a-8a0c-3102a1d75134" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.96875 : 5.02089680989583); (3.96875 : 6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ScotiaBankDataContext/Customer/Customer_BranchCustomer" />
+      <nodes>
+        <classShapeMoniker Id="148b5114-25ea-4f35-9f23-2381907d883c" />
+        <classShapeMoniker Id="3d74ce25-125b-407a-8a0c-3102a1d75134" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bcf7d792-e749-459b-82ce-1986a68521e6" absoluteBounds="0.5, 2.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ScotiaBankDataContext/Accounts" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c0bbb702-1b73-4236-98f7-c8f901c9954a" absoluteBounds="0.51500000000000012, 2.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cbef49d2-8fed-45aa-aa46-bf949d4ac67b" absoluteBounds="0.5, 0.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ScotiaBankDataContext/Account_type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="817f4e72-9b13-452e-8eac-22ac1d61d74f" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 1.8862939453125); (1.5 : 2.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ScotiaBankDataContext/Account_type/Account_type_Account" />
+      <nodes>
+        <classShapeMoniker Id="cbef49d2-8fed-45aa-aa46-bf949d4ac67b" />
+        <classShapeMoniker Id="bcf7d792-e749-459b-82ce-1986a68521e6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="88602551-330d-4abc-a3de-4fac1e29dd8a" absoluteBounds="3.25, 1.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ScotiaBankDataContext/AccountCustomer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c9e0fcca-9682-4d81-814b-62596940e6c3" absoluteBounds="3.265, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.40949625651042); (3.25 : 2.40949625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ScotiaBankDataContext/Accounts/Account_AccountCustomer" />
+      <nodes>
+        <classShapeMoniker Id="bcf7d792-e749-459b-82ce-1986a68521e6" />
+        <classShapeMoniker Id="88602551-330d-4abc-a3de-4fac1e29dd8a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.9375 : 3.25); (3.9375 : 2.69399251302083)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ScotiaBankDataContext/Customer/Customer_AccountCustomer" />
+      <nodes>
+        <classShapeMoniker Id="148b5114-25ea-4f35-9f23-2381907d883c" />
+        <classShapeMoniker Id="88602551-330d-4abc-a3de-4fac1e29dd8a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="38106532-2745-4232-844b-ea83d1900681" absoluteBounds="0.5, 4.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ScotiaBankDataContext/Bill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e8fe60df-677a-4f3a-8bbd-bd2b00d6f310" absoluteBounds="0.51500000000000012, 5.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 4.13544840494792); (1.5 : 4.13544840494792); (1.5 : 4.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ScotiaBankDataContext/Customer/Customer_Bill" />
+      <nodes>
+        <classShapeMoniker Id="148b5114-25ea-4f35-9f23-2381907d883c" />
+        <classShapeMoniker Id="38106532-2745-4232-844b-ea83d1900681" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

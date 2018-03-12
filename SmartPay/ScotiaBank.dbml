@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Scotia Bank" Class="ScotiaBankDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=BEDROOM\JOHNNY;Initial Catalog=&quot;Scotia Bank&quot;;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Scotia_BankConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.transaction_history" Member="transaction_histories">
+    <Type Name="transaction_history">
+      <Column Name="trans_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="acct_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trans_desc" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="trans_amt" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="date_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="transaction_type_transtype_Id" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="transaction_type_transaction_history" Member="transaction_type" ThisKey="transaction_type_transtype_Id" OtherKey="transtype_Id" Type="transaction_type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.transaction_type" Member="transaction_types">
+    <Type Name="transaction_type">
+      <Column Name="transtype_Id" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transtype_desc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="transaction_type_transaction_history" Member="transaction_histories" ThisKey="transtype_Id" OtherKey="transaction_type_transtype_Id" Type="transaction_history" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="Cust_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="branch_code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cust_address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="gender" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_BranchCustomer" Member="BranchCustomers" ThisKey="Cust_Id" OtherKey="Customers_Cust_Id" Type="BranchCustomer" />
+      <Association Name="Customer_AccountCustomer" Member="AccountCustomers" ThisKey="Cust_Id" OtherKey="Customers_Cust_Id" Type="AccountCustomer" />
+      <Association Name="Customer_Bill" Member="Bills" ThisKey="Cust_Id" OtherKey="Customer_Cust_Id" Type="Bill" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Branches" Member="Branches">
+    <Type Name="Branch">
+      <Column Name="Branch_code" Type="System.String" DbType="NChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="branch_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="branch_address" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Branch_BranchCustomer" Member="BranchCustomers" ThisKey="Branch_code" OtherKey="Branches_Branch_code" Type="BranchCustomer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BranchCustomer" Member="BranchCustomers">
+    <Type Name="BranchCustomer">
+      <Column Name="Branches_Branch_code" Type="System.String" DbType="NChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Customers_Cust_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Branch_BranchCustomer" Member="Branch" ThisKey="Branches_Branch_code" OtherKey="Branch_code" Type="Branch" IsForeignKey="true" />
+      <Association Name="Customer_BranchCustomer" Member="Customer" ThisKey="Customers_Cust_Id" OtherKey="Cust_Id" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Accounts" Member="Accounts">
+    <Type Name="Accounts">
+      <Column Name="Account_number" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cust_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Acct_balance" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Account_type_acctype_Id" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="Account_AccountCustomer" Member="AccountCustomers" ThisKey="Account_number" OtherKey="Accounts_Account_number" Type="AccountCustomer" />
+      <Association Name="Account_type_Account" Member="Account_type" ThisKey="Account_type_acctype_Id" OtherKey="acctype_Id" Type="Account_type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Account_type" Member="Account_types">
+    <Type Name="Account_type">
+      <Column Name="acctype_Id" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="acctype" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="InterestRate" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Account_type_Account" Member="Accounts" ThisKey="acctype_Id" OtherKey="Account_type_acctype_Id" Type="Accounts" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AccountCustomer" Member="AccountCustomers">
+    <Type Name="AccountCustomer">
+      <Column Name="Accounts_Account_number" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Customers_Cust_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Account_AccountCustomer" Member="Accounts" Storage="_Account" ThisKey="Accounts_Account_number" OtherKey="Account_number" Type="Accounts" IsForeignKey="true" />
+      <Association Name="Customer_AccountCustomer" Member="Customer" ThisKey="Customers_Cust_Id" OtherKey="Cust_Id" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bills" Member="Bills">
+    <Type Name="Bill">
+      <Column Name="Bill_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cust_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Statement_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Due_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Bill_Amt" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Customer_Cust_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_Bill" Member="Customer" ThisKey="Customer_Cust_Id" OtherKey="Cust_Id" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Generate_Bill" Method="Generate_Bill">
+    <Parameter Name="Cust_ID" Parameter="cust_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cust_name" Parameter="cust_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Statement_date" Parameter="statement_date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Due_date" Parameter="due_date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Bill_amount" Parameter="bill_amount" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Make_Payment" Method="Make_Payment">
+    <Parameter Name="customerid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="acct_number" Type="System.Int32" DbType="Int" />
+    <Parameter Name="payment_amt" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="acct_balance" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="payment_time" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="transaction_type" Type="System.String" DbType="NChar(5)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

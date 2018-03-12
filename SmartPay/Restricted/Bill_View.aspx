@@ -4,6 +4,6 @@
         <h3 class="margin">Your Bill</h3>
     </div>
     <div class="container-fluid">
-        <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+        <!-- Some type of view here -->
     </div>
 </asp:Content>

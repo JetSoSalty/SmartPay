@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NCB" Class="NCBJDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=BEDROOM\JOHNNY;Initial Catalog=NCB;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NCBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.nwc_Account_Type" Member="nwc_Account_Types">
+    <Type Name="nwc_Account_Type">
+      <Column Name="Type_Id" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Account_type1" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="InterestRate" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="nwc_Account_Type_nwc_Account" Member="nwc_Accounts" ThisKey="Type_Id" OtherKey="Account_Type_Type_Id" Type="nwc_Account" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_Accounts" Member="nwc_Accounts">
+    <Type Name="nwc_Account">
+      <Column Name="Account_Number" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cust_num" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Account_type" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Balance" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Account_Type_Type_Id" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="nwc_Account_nwc_AccountTransaction_log" Member="nwc_AccountTransaction_logs" ThisKey="Account_Number" OtherKey="nwc_Accounts_Account_Number" Type="nwc_AccountTransaction_log" />
+      <Association Name="nwc_Account_nwc_CustomerAccount" Member="nwc_CustomerAccounts" ThisKey="Account_Number" OtherKey="nwc_Accounts_Account_Number" Type="nwc_CustomerAccount" />
+      <Association Name="nwc_Account_Type_nwc_Account" Member="nwc_Account_Type" ThisKey="Account_Type_Type_Id" OtherKey="Type_Id" Type="nwc_Account_Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_AccountTransaction_log" Member="nwc_AccountTransaction_logs">
+    <Type Name="nwc_AccountTransaction_log">
+      <Column Name="nwc_Accounts_Account_Number" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nwc_Transaction_log_transaction_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="nwc_Account_nwc_AccountTransaction_log" Member="nwc_Account" ThisKey="nwc_Accounts_Account_Number" OtherKey="Account_Number" Type="nwc_Account" IsForeignKey="true" />
+      <Association Name="nwc_Transaction_log_nwc_AccountTransaction_log" Member="nwc_Transaction_log" ThisKey="nwc_Transaction_log_transaction_Id" OtherKey="transaction_Id" Type="nwc_Transaction_log" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_BillCustomer" Member="nwc_BillCustomers">
+    <Type Name="nwc_BillCustomer">
+      <Column Name="nwc_Bills_Bill_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nwc_Customers_Cust_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="nwc_Bill_nwc_BillCustomer" Member="nwc_Bill" ThisKey="nwc_Bills_Bill_Id" OtherKey="Bill_Id" Type="nwc_Bill" IsForeignKey="true" />
+      <Association Name="nwc_Customer_nwc_BillCustomer" Member="nwc_Customer" ThisKey="nwc_Customers_Cust_Id" OtherKey="Cust_Id" Type="nwc_Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_Bills" Member="nwc_Bills">
+    <Type Name="nwc_Bill">
+      <Column Name="Bill_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cust_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cust_name" Type="System.String" DbType="NChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="Statement_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Due_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Bill_Amt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="nwc_Bill_nwc_BillCustomer" Member="nwc_BillCustomers" ThisKey="Bill_Id" OtherKey="nwc_Bills_Bill_Id" Type="nwc_BillCustomer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_BranchCustomer" Member="nwc_BranchCustomers">
+    <Type Name="nwc_BranchCustomer">
+      <Column Name="nwc_Branches_Branch_code" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nwc_Customers_Cust_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="nwc_Branch_nwc_BranchCustomer" Member="nwc_Branch" ThisKey="nwc_Branches_Branch_code" OtherKey="Branch_code" Type="nwc_Branch" IsForeignKey="true" />
+      <Association Name="nwc_Customer_nwc_BranchCustomer" Member="nwc_Customer" ThisKey="nwc_Customers_Cust_Id" OtherKey="Cust_Id" Type="nwc_Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_Branches" Member="nwc_Branches">
+    <Type Name="nwc_Branch">
+      <Column Name="Branch_code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="branch_name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="branch_address" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="nwc_Branch_nwc_BranchCustomer" Member="nwc_BranchCustomers" ThisKey="Branch_code" OtherKey="nwc_Branches_Branch_code" Type="nwc_BranchCustomer" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_CustomerAccount" Member="nwc_CustomerAccounts">
+    <Type Name="nwc_CustomerAccount">
+      <Column Name="nwc_Accounts_Account_Number" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nwc_Customers_Cust_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="nwc_Account_nwc_CustomerAccount" Member="nwc_Account" ThisKey="nwc_Accounts_Account_Number" OtherKey="Account_Number" Type="nwc_Account" IsForeignKey="true" />
+      <Association Name="nwc_Customer_nwc_CustomerAccount" Member="nwc_Customer" ThisKey="nwc_Customers_Cust_Id" OtherKey="Cust_Id" Type="nwc_Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_Customers" Member="nwc_Customers">
+    <Type Name="nwc_Customer">
+      <Column Name="Cust_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cust_name" Type="System.String" DbType="NChar(4000) NOT NULL" CanBeNull="false" />
+      <Column Name="branch_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cust_address" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="nwc_Customer_nwc_BillCustomer" Member="nwc_BillCustomers" ThisKey="Cust_Id" OtherKey="nwc_Customers_Cust_Id" Type="nwc_BillCustomer" />
+      <Association Name="nwc_Customer_nwc_BranchCustomer" Member="nwc_BranchCustomers" ThisKey="Cust_Id" OtherKey="nwc_Customers_Cust_Id" Type="nwc_BranchCustomer" />
+      <Association Name="nwc_Customer_nwc_CustomerAccount" Member="nwc_CustomerAccounts" ThisKey="Cust_Id" OtherKey="nwc_Customers_Cust_Id" Type="nwc_CustomerAccount" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_trans_type" Member="nwc_trans_types">
+    <Type Name="nwc_trans_type">
+      <Column Name="transtype_Id" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="transtype_desc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="nwc_trans_type_nwc_Transaction_log" Member="nwc_Transaction_logs" ThisKey="transtype_Id" OtherKey="trans_type1_transtype_Id" Type="nwc_Transaction_log" />
+    </Type>
+  </Table>
+  <Table Name="dbo.nwc_Transaction_log" Member="nwc_Transaction_logs">
+    <Type Name="nwc_Transaction_log">
+      <Column Name="transaction_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="acct_num" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trans_desc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="trans_amt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="date_time" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="customer" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="trans_type1_transtype_Id" Type="System.String" DbType="NChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="nwc_Transaction_log_nwc_AccountTransaction_log" Member="nwc_AccountTransaction_logs" ThisKey="transaction_Id" OtherKey="nwc_Transaction_log_transaction_Id" Type="nwc_AccountTransaction_log" />
+      <Association Name="nwc_trans_type_nwc_Transaction_log" Member="nwc_trans_type" ThisKey="trans_type1_transtype_Id" OtherKey="transtype_Id" Type="nwc_trans_type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Generate_Bill" Method="Generate_Bill">
+    <Parameter Name="Cust_ID" Parameter="cust_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cust_name" Parameter="cust_name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Statement_date" Parameter="statement_date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Due_date" Parameter="due_date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Bill_amount" Parameter="bill_amount" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Recieve_Payment" Method="Recieve_Payment">
+    <Parameter Name="customerid" Type="System.Int32" DbType="Int" />
+    <Parameter Name="acct_number" Type="System.Int32" DbType="Int" />
+    <Parameter Name="payment_amt" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="acct_balance" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="payment_datetime" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="transaction_type" Type="System.String" DbType="NChar(5)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

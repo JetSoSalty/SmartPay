@@ -21,9 +21,9 @@ namespace SmartPay.Models
             var roleMgr = new RoleManager<IdentityRole>(roleStore);
 
             // Then, you create the "admin" role if it doesn't already exist.
-            if (!roleMgr.RoleExists("admin"))
+            if (!roleMgr.RoleExists("nwc"))
             {
-                IdRoleResult = roleMgr.Create(new IdentityRole { Name = "admin" });
+                IdRoleResult = roleMgr.Create(new IdentityRole { Name = "nwc" });
             }
 
             // Create a UserManager object based on the UserStore object and the ApplicationDbContext  
@@ -33,16 +33,16 @@ namespace SmartPay.Models
             var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
             var appUser = new ApplicationUser
             {
-                UserName = "Administrator",
-                Email = "admin@wingtiptoys.com"
+                UserName = "SALESDEPT",
+                Email = "admin@nwcj.com"
             };
             IdUserResult = userMgr.Create(appUser, "P@$$w0rd");
 
             // If the new "admin" user was successfully created, 
             // add the "admin" user to the "canEdit" role. 
-            if (!userMgr.IsInRole(userMgr.FindByEmail("test@somewhere.com").Id, "admin"))
+            if (!userMgr.IsInRole(userMgr.FindByEmail("admin@nwcj.com").Id, "nwc"))
             {
-                IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("test@somewhere.com").Id, "admin");
+                IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("admin@nwcj.com").Id, "nwc");
             }
         }
     }
