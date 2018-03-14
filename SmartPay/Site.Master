@@ -90,7 +90,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Made by Studio Monkey</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Made by qwertyuiop</p>
             </footer>
         </div>
     </form>
