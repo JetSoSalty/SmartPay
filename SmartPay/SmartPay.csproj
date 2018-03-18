@@ -211,6 +211,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\waypoints.css" />
+    <Content Include="Databases\NCB.mdf" />
+    <Content Include="Databases\NCB_log.ldf" />
+    <Content Include="Databases\Scotia Bank.mdf" />
+    <Content Include="Databases\Scotia Bank_log.ldf" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
