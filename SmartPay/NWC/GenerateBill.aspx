@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="GenerateBill.aspx.cs" Inherits="SmartPay.NWC.GenerateBill" %>
 
 <%@ Register Assembly="Custom_Server_Control" Namespace="Custom_Server_Control" TagPrefix="cc1" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="payment" class="container-fluid text-center">
         <h3 class="margin">Generate your bill here</h3>
@@ -26,7 +28,8 @@
 
         <div class="form-group">
             <div class="col-md-10">
-                <cc1:CustomCalendar ID="CustomCalendar1" runat="server" /><!--The actual custom control-->
+                <!--The actual custom control-->
+                <cc1:customcalendar runat="server" CssClass="form-control" ImageButtonImageUrl="~/images/calendars/calendar_3.png"></cc1:customcalendar>
             </div>
         </div>
         <div class="form-group">
@@ -35,5 +38,6 @@
             </div>
         </div>
         <div
+    </div>
     </div>
 </asp:Content>
