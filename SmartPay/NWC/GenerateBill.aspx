@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="GenerateBill.aspx.cs" Inherits="SmartPay.NWC.GenerateBill" %>
+
+<%@ Register Assembly="Custom_Server_Control" Namespace="Custom_Server_Control" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="payment" class="container-fluid text-center">
         <h3 class="margin">Generate your bill here</h3>
@@ -21,10 +23,17 @@
                     CssClass="text-danger" ErrorMessage="The Customer's ID is required." />
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <cc1:CustomCalendar ID="CustomCalendar1" runat="server" /><!--The actual custom control-->
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="payment_click" Text="Generate Bill" CssClass="btn btn-outline-dark" />
             </div>
         </div>
+        <div
     </div>
 </asp:Content>
