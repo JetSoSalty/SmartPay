@@ -37,7 +37,7 @@
                 <asp:Button runat="server" OnClick="payment_click" Text="Generate Bill" CssClass="btn btn-outline-dark" />
             </div>
         </div>
-        <div
+        <div>
     </div>
     </div>
 </asp:Content>
