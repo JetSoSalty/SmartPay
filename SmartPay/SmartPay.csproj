@@ -229,10 +229,10 @@
     <Content Include="images\calendars\calendar_3.png" />
     <Content Include="images\calendars\calendar_4.png" />
     <Content Include="images\calendars\calendar_2.png" />
-    <Content Include="images\Slide_3.jpg" />
+    <Content Include="images\carousel1.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\Slide_2.jpg" />
-    <Content Include="images\Slide_1.jpg" />
+    <Content Include="images\carousel2.jpg" />
     <Content Include="Maintenance\Default.aspx" />
     <Content Include="NWC\GenerateBill.aspx" />
     <Content Include="NWC\Transaction-log-viewer.aspx" />
@@ -594,7 +594,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58742</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

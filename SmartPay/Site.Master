@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Raleway" rel="stylesheet">
     <link href="Content/toastr.css" rel="stylesheet" />
@@ -53,12 +53,9 @@
             </Scripts>
         </asp:ScriptManager>
 
-           <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <a class="navbar-brand" href="#">
-                <img src="../images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                Smart Pay
-
-            </a>
+           <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <a class="navbar-brand" href="Default.aspx">
+                <img src="../images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">Smart Pay</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -84,7 +81,7 @@
                     </div>
                 </div>
         </nav>
-        <div class="container-fluid body-content">
+        <div class="container-fluid body-content h-90 ">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             
             </asp:ContentPlaceHolder>
