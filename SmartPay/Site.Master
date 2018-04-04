@@ -87,7 +87,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Made by qwertyuiop</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Made by Team10</p>
             </footer>
         </div>
     </form>
