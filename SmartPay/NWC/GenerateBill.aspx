@@ -29,15 +29,16 @@
         <div class="form-group">
             <div class="col-md-10">
                 <!--The actual custom control-->
-                <cc1:customcalendar runat="server" CssClass="form-control" ImageButtonImageUrl="~/images/calendars/calendar_3.png"></cc1:customcalendar>
+                
             </div>
+            <cc1:CustomCalendar runat="server" ImageButtonImageUrl="../images/calendars/calendar_3.png"></cc1:CustomCalendar>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="payment_click" Text="Generate Bill" CssClass="btn btn-outline-dark" />
             </div>
         </div>
-        <div
+        <div>
     </div>
     </div>
 </asp:Content>
