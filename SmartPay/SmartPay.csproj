@@ -481,6 +481,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill_Generation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LinqQueries.cs" />
     <Compile Include="Models\RoleActions.cs" />
     <Compile Include="NCBJ.designer.cs">
       <AutoGen>True</AutoGen>
