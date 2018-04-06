@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SmartPay.Maintenance.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
     <h1>Maintain users and roles</h1>
     (Only users associated with the Admin role can access this page)
     <div class="row">
@@ -7,7 +8,7 @@
 
              <asp:GridView ID="grdUsers" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" 
                  ItemType="SmartPay.Models.ApplicationUser" SelectMethod="grdUsers_GetData" 
-                 CssClass="table table-bordered table-striped table-dark table-condensed"
+                 CssClass="table table-bordered table-striped table-light table-condensed"
                  OnPreRender="GridView_PreRender">
                  <Columns>
                     <asp:BoundField HeaderText="User Name" DataField="UserName" />
@@ -23,7 +24,7 @@
          </div>
      <div class="col-sm-6">
             <asp:DetailsView ID="dvUsers" runat="server" DataKeyNames="Id" 
-                AutoGenerateRows="false" CssClass="table table-bordered table-striped table-dark table-condensed" 
+                AutoGenerateRows="false" CssClass="table table-bordered table-striped table-light table-condensed" 
                 SelectMethod="dvUsers_GetItem" UpdateMethod="dvUsers_UpdateItem" 
                 InsertMethod="dvUsers_InsertItem" DeleteMethod="dvUsers_DeleteItem">
                 <Fields>
@@ -39,7 +40,7 @@
             <h2>Roles</h2>
             <asp:GridView ID="grdRoles" runat="server" DataKeyNames="Id" 
                 AutoGenerateColumns="false" SelectMethod="grdRoles_GetData"
-                CssClass="table table-bordered table-striped table-dark table-condensed" 
+                CssClass="table table-bordered table-striped table-light table-condensed" 
                 OnPreRender="GridView_PreRender">
                 <Columns>
                     <asp:BoundField HeaderText="Role Name" DataField="Name" />
@@ -47,7 +48,7 @@
                 </Columns>
             </asp:GridView>
             <asp:DetailsView ID="dvRoles" runat="server" DataKeyNames="Id" 
-                AutoGenerateRows="false" CssClass="table table-bordered table-striped table-dark table-condensed" 
+                AutoGenerateRows="false" CssClass="table table-bordered table-striped table-light table-condensed" 
                 SelectMethod="dvRoles_GetItem" UpdateMethod="dvRoles_UpdateItem" 
                 InsertMethod="dvRoles_InsertItem" DeleteMethod="dvRoles_DeleteItem">
                 <Fields>
@@ -57,6 +58,7 @@
                 </Fields>
             </asp:DetailsView>
         </div>
+         <br />
         <div class="col-sm-6">
             <h2>Add Roles to User</h2>
             <div class="form-group">
@@ -70,7 +72,7 @@
                 <label class="control-label">Add one or more roles:</label>
                 <asp:ListBox ID="lstRoles" runat="server" SelectionMode="Multiple" 
                     SelectMethod="grdRoles_GetData" DataValueField="Id"
-                    DataTextField="Name" CssClass="form-control"></asp:ListBox>
+                    DataTextField="Name" CssClass="form-control bg-light"></asp:ListBox>
             </div>
             <div class="form-group">
                 <asp:Button ID="btnAddRoles" runat="server" Text="Add Roles" 

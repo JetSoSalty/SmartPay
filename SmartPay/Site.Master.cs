@@ -69,7 +69,20 @@ namespace SmartPay
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (HttpContext.Current.User.IsInRole("SystemAdministrator"))
+            {
+                UserControl.Visible = true;
+            }
+            if (HttpContext.Current.User.IsInRole("NWC"))
+            {
+                NWC1.Visible = true;
+            }
+            if (HttpContext.Current.User.IsInRole("AuthorisedUser"))
+            {
+                BillView.Visible = true;
+                TransLogView.Visible = true;
+                BillArchiveView.Visible = true;
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
