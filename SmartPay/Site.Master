@@ -11,19 +11,19 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
-    
+
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Raleway" rel="stylesheet">
     <link href="Content/toastr.css" rel="stylesheet" />
-    <link href="Content/animate.css" rel="stylesheet"/>
-    <link href="Content/waypoints.css" rel="stylesheet"/>
+    <link href="Content/animate.css" rel="stylesheet" />
+    <link href="Content/waypoints.css" rel="stylesheet" />
     <link href="Content/Site.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/toastr.min.js"></script>
     <script src="Scripts/waypoints.js"></script>
-      <style>
+    <style>
         body {
             font-family: 'Raleway', sans-serif;
         }
@@ -37,7 +37,7 @@
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" Path="Scripts/jquery-3.3.1.min.js" />
-                
+
                 <asp:ScriptReference Name="respond" />
                 <asp:ScriptReference Name="bootstrap" Path="Scripts/bootstrap.bundle.js" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
@@ -53,17 +53,22 @@
             </Scripts>
         </asp:ScriptManager>
 
-           <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
             <a class="navbar-brand" href="Default.aspx">
                 <img src="../images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">Smart Pay</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" runat="server" href="~/">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" runat="server" href="~/About">About</a>
-                        <a class="nav-item nav-link" runat="server" href="~/Contact">Contact</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" runat="server" href="~/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" runat="server" href="~/About">About</a>
+                    <a class="nav-item nav-link" runat="server" href="~/Contact">Contact</a>
+                    <a runat="server" id="UserControl" href="~/Maintenance/Default.aspx">User Control</a>
+                    <a runat="server" id="NWC1" href="~/NWC/GenerateBill.aspx">Generate Bill</a>
+                    <a runat="server" id="BillView" href="~/Restricted/Bill_View.aspx">View Bill</a>
+                    <a runat="server" id="TransLogView" href="~/Restricted/View-transaction-log.aspx">View Transaction Log</a>
+                    <a runat="server" id="BillArchiveView" href="~/Restricted/Bill Archive.aspx">Bill Archive</a>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
@@ -78,12 +83,11 @@
                             </ul>
                         </LoggedInTemplate>
                     </asp:LoginView>
-                    </div>
                 </div>
+            </div>
         </nav>
         <div class="container-fluid body-content h-90 ">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            
             </asp:ContentPlaceHolder>
             <hr />
             <footer>

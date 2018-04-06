@@ -8,19 +8,19 @@
         <h3 class="margin">Generate your bill here</h3>
     </div>
     <div class="form-horizontal">
-       <asp:ValidationSummary runat="server" CssClass="text-danger" />
+        <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
-            <asp:Label AssociatedControlID="FullName" runat="server" CssClass="col-md-2 control-label" >Customer Name</asp:Label>
+            <asp:Label AssociatedControlID="FullName" runat="server" CssClass="col-md-2 control-label">Customer Name</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox ID="FullName" placeholder="Enter the customer's full name here" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="FullName" placeholder="Enter Customer's Full Name" CssClass="form-control" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="FullName" Display="Dynamic"
                     CssClass="text-danger" ErrorMessage="The customer's full name is required." />
             </div>
         </div>
         <div class="form-group">
-            <asp:Label AssociatedControlID="CustID" runat="server" CssClass="col-md-2 control-label" >Customer ID Number</asp:Label>
+            <asp:Label AssociatedControlID="CustID" runat="server" CssClass="col-md-2 control-label">Customer ID Number</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox ID="CustID" placeholder="Enter the customer's id number here" CssClass="form-control" runat="server"></asp:TextBox>
+                <asp:TextBox ID="CustID" placeholder="Enter Customer's ID Number" CssClass="form-control" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="CustID" Display="Dynamic"
                     CssClass="text-danger" ErrorMessage="The Customer's ID is required." />
             </div>
@@ -28,10 +28,10 @@
 
         <div class="form-group">
             <div class="col-md-10">
-                <!--The actual custom control-->
-                
+                <asp:Label runat="server" CssClass="col-md-2 control-label">Date</asp:Label>
+                <cc1:CustomCalendar runat="server" ImageButtonImageUrl="../images/calendars/calendar_3.png"></cc1:CustomCalendar>
             </div>
-            <cc1:CustomCalendar runat="server" ImageButtonImageUrl="../images/calendars/calendar_3.png"></cc1:CustomCalendar>
+
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
@@ -39,6 +39,6 @@
             </div>
         </div>
         <div>
-    </div>
+        </div>
     </div>
 </asp:Content>
