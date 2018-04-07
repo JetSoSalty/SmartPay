@@ -14,18 +14,27 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
-
+    <link rel="shortcut icon" href="assets/images/logo-122x122.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+    <link rel="stylesheet" href="assets/tether/tether.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Raleway" rel="stylesheet">
     <link href="Content/toastr.css" rel="stylesheet" />
     <link href="Content/animate.css" rel="stylesheet" />
     <link href="Content/waypoints.css" rel="stylesheet" />
     <link href="Content/Site.css" rel="stylesheet" />
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/toastr.min.js"></script>
-    <script src="Scripts/waypoints.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../Scripts/toastr.min.js"></script>
+    <script src="../Scripts/waypoints.js"></script>
     <style>
         body {
-            font-family: 'Raleway', sans-serif;
+            font-family: 'Barlow', sans-serif;
         }
     </style>
 </head>
@@ -53,7 +62,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top transparent bg-color">
             <a class="navbar-brand" href="Default.aspx">
                 <img src="../images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">Smart Pay</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,11 +73,8 @@
                     <a class="nav-item nav-link" runat="server" href="~/">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" runat="server" href="~/About">About</a>
                     <a class="nav-item nav-link" runat="server" href="~/Contact">Contact</a>
-                    <a runat="server" id="UserControl" href="~/Maintenance/Default.aspx">User Control</a>
-                    <a runat="server" id="NWC1" href="~/NWC/GenerateBill.aspx">Generate Bill</a>
-                    <a runat="server" id="BillView" href="~/Restricted/Bill_View.aspx">View Bill</a>
-                    <a runat="server" id="TransLogView" href="~/Restricted/View-transaction-log.aspx">View Transaction Log</a>
-                    <a runat="server" id="BillArchiveView" href="~/Restricted/Bill Archive.aspx">Bill Archive</a>
+                    <a class="nav-item nav-link" runat="server" id="UserControl" visible="false" href="~/Maintenance/Default.aspx">User Control</a>
+                    <a class="nav-item nav-link" runat="server" id="LIME1" visible="false" href="~/LIME/GenerateBill.aspx">Generate Bill</a>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
@@ -78,6 +84,9 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
+                                <a class="nav-item nav-link" runat="server" id="BillView" href="~/Restricted/Bill_View.aspx">View Bill</a>
+                                <a class="nav-item nav-link" runat="server" id="TransLogView" href="~/Restricted/View-transaction-log.aspx">View Transaction Log</a>
+                                <a class="nav-item nav-link" runat="server" id="BillArchiveView" href="~/Restricted/Bill Archive.aspx">Bill Archive</a>
                                 <a class="nav-item nav-link" runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
                                 <asp:LoginStatus class="nav-item nav-link" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                             </ul>
@@ -91,7 +100,94 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Made by Team10</p>
+                <section class="cid-qOuRqNXDyU" id="footer1-g">
+    <div class="container">
+        <div class="media-container-row content text-white">
+            <div class="col-12 col-md-3">
+                <div class="media-wrap">
+                        <img src="../assets/images/mbr-192x128.jpg" alt="Mobirise" title="">
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <h5 class="pb-3">
+                    Address
+                </h5>
+                <p class="mbr-text">
+                    1234 Street Name
+                    <br>City, AA 99999
+                </p>
+            </div>
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <h5 class="pb-3">
+                    Contacts
+                </h5>
+                <p class="mbr-text">
+                    Email: support@smartpay.com
+                    <br>Phone: +1 (0) 000 0000 001
+                    <br>Fax: +1 (0) 000 0000 002
+                </p>
+            </div>
+            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                <h5 class="pb-3">
+                    Links
+                </h5>
+                <p class="mbr-text">
+                    <a class="text-primary" href="#">Apple</a>
+                    <br><a class="text-primary" href="#">Pie</a>
+                    <br><a class="text-primary" href="#">Piece of Plum</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-lower">
+            <div class="media-container-row">
+                <div class="col-sm-12">
+                    <hr>
+                </div>
+            </div>
+            <div class="media-container-row mbr-white">
+                <div class="col-sm-6 copyright">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        &copy; <%: DateTime.Now.Year %> - Made by Team10 - All Rights Reserved
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="social-list align-right">
+                        <div class="soc-item">
+                            
+                                <span class="mbr-iconfont mbr-iconfont-social socicon-twitter socicon"></span>
+                            
+                        </div>
+                        <div class="soc-item">
+                            
+                                <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
+                            
+                        </div>
+                        <div class="soc-item">
+                            
+                                <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>
+                            
+                        </div>
+                        <div class="soc-item">
+                            
+                                <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
+                            
+                        </div>
+                        <div class="soc-item">
+                            
+                                <span class="mbr-iconfont mbr-iconfont-social socicon-googleplus socicon"></span>
+                            
+                        </div>
+                        <div class="soc-item">
+                            
+                                <span class="mbr-iconfont mbr-iconfont-social socicon-behance socicon"></span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
             </footer>
         </div>
     </form>

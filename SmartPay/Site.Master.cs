@@ -73,16 +73,16 @@ namespace SmartPay
             {
                 UserControl.Visible = true;
             }
-            if (HttpContext.Current.User.IsInRole("NWC"))
+            else if (HttpContext.Current.User.IsInRole("LIME"))
             {
-                NWC1.Visible = true;
+                LIME1.Visible = true;
             }
-            if (HttpContext.Current.User.IsInRole("AuthorisedUser"))
-            {
-                BillView.Visible = true;
-                TransLogView.Visible = true;
-                BillArchiveView.Visible = true;
-            }
+            //if (HttpContext.Current.User.IsInRole("AuthorisedUser"))
+            //{
+            //    BillView.Visible = true;
+            //    TransLogView.Visible = true;
+            //    BillArchiveView.Visible = true;
+            //}
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
