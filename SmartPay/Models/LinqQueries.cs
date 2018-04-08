@@ -11,7 +11,7 @@ namespace SmartPay.Models
         static ScotiaBankDataContext scotiaB = new ScotiaBankDataContext();// I have to keep this contaxt open in order to return table for bill view
 
         /*These are for nwc*/
-        public void Generate_bill(int customer_id, String name, DateTime Statement_date, DateTime Due_date, Decimal Bill_amt)//the generate bill stored procedure needs 
+        public static void Generate_bill(int customer_id, String name, DateTime Statement_date, DateTime Due_date, Decimal Bill_amt)//the generate bill stored procedure needs 
         {
             using ( NCBJDataContext ncb = new NCBJDataContext())
             {
@@ -28,7 +28,7 @@ namespace SmartPay.Models
                 
         }
 
-        public void Recieve_Payments(int cust_id, int acct_num, Decimal Pay_amt, Decimal Acct_balance, DateTime Payment_date, String trans_type)
+        public static void Recieve_Payments(int cust_id, int acct_num, Decimal Pay_amt, Decimal Acct_balance, DateTime Payment_date, String trans_type)
         {
             using (NCBJDataContext ncb = new NCBJDataContext())
             {
@@ -44,7 +44,7 @@ namespace SmartPay.Models
         }
 
         /*For customer*/
-        public void Cust_genbill(int customer_id, String name, DateTime Statement_date, DateTime Due_date, Decimal Bill_amt)
+        public static void Cust_genbill(int customer_id, String name, DateTime Statement_date, DateTime Due_date, Decimal Bill_amt)
         {
             using (ScotiaBankDataContext scotia = new ScotiaBankDataContext())// these were created long ago using linq to sql  look for .dbml extensions
             {
@@ -60,7 +60,7 @@ namespace SmartPay.Models
             }
         }
 
-        public void Make_payment(int cust_id, int acct_num, Decimal Pay_amt, Decimal Acct_balance, DateTime Payment_date, String trans_type)
+        public static void Make_payment(int cust_id, int acct_num, Decimal Pay_amt, Decimal Acct_balance, DateTime Payment_date, String trans_type)
         {
             using (ScotiaBankDataContext scotia = new ScotiaBankDataContext())
             {
