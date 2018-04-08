@@ -27,6 +27,7 @@ namespace SmartPay
 
         void RegisterRoutes(RouteCollection routes)
         {
+            // Routing used to change the appearance of urls of the asp.net pages 
             routes.MapPageRoute("","SmartPay","~/landing.aspx");
             routes.MapPageRoute("", "SmartPay/About", "~/About.aspx");
             routes.MapPageRoute("", "SmartPay/ContactUs", "~/Contact.aspx");
