@@ -11,7 +11,6 @@
     </div>
     <div class="row ">
         <div class="col-md-8 ">
-            <section id="loginForm">
                 <div class="form-horizontal offset-md-3 offset-lg-3">
                     <h4>Use a local account to log in.</h4>
                     <hr />
@@ -21,10 +20,10 @@
                         </p>
                     </asp:PlaceHolder>
                     <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label">UserName</asp:Label>
+                        <asp:Label runat="server" AssociatedControlID="Username" CssClass="col-md-2 control-label">User Name</asp:Label>
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="Username" CssClass="form-control" TextMode="SingleLine" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Username"
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Username" Display="Dynamic"
                                 CssClass="text-danger" ErrorMessage="The email field is required." />
                         </div>
                     </div>
@@ -32,7 +31,7 @@
                         <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" Display="Dynamic" ErrorMessage="The password field is required." />
                         </div>
                     </div>
                     <div class="form-group">
@@ -59,13 +58,10 @@
                     <asp:HyperLink runat="server" ID="ForgotPasswordHyperLink" ViewStateMode="Disabled">Forgot your password?</asp:HyperLink>
                     --%>
                 </p>
-            </section>
         </div>
 
         <div class="col-md-4">
-            <section id="socialLoginForm">
                 <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
-            </section>
         </div>
     </div>
 </asp:Content>

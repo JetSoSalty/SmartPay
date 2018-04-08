@@ -204,6 +204,30 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="assets\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="assets\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\dropdown\css\style.css" />
+    <Content Include="assets\dropdown\js\script.min.js" />
+    <Content Include="assets\images\carousel2-1698x1131.jpg" />
+    <Content Include="assets\images\logo-122x122.png" />
+    <Content Include="assets\images\mbr-192x128.jpg" />
+    <Content Include="assets\images\mbr-favicon.png" />
+    <Content Include="assets\mobirise\css\mbr-additional.css" />
+    <Content Include="assets\parallax\jarallax.min.js" />
+    <Content Include="assets\popper\popper.min.js" />
+    <Content Include="assets\smoothscroll\smooth-scroll.js" />
+    <Content Include="assets\socicon\css\styles.css" />
+    <Content Include="assets\socicon\fonts\socicon.svg" />
+    <Content Include="assets\tether\tether.min.css" />
+    <Content Include="assets\tether\tether.min.js" />
+    <Content Include="assets\theme\css\style.css" />
+    <Content Include="assets\theme\js\script.js" />
+    <Content Include="assets\touchswipe\jquery.touch-swipe.min.js" />
+    <Content Include="assets\web\assets\jquery\jquery.min.js" />
+    <Content Include="assets\web\assets\mobirise-icons\mobirise-icons.css" />
+    <Content Include="assets\web\assets\mobirise-icons\mobirise-icons.svg" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -234,8 +258,8 @@
     <Content Include="images\Slide_2.jpg" />
     <Content Include="images\carousel2.jpg" />
     <Content Include="Maintenance\Default.aspx" />
-    <Content Include="NWC\GenerateBill.aspx" />
-    <Content Include="NWC\Transaction-log-viewer.aspx" />
+    <Content Include="LIME\GenerateBill.aspx" />
+    <Content Include="LIME\Transaction-log-viewer.aspx" />
     <Content Include="Restricted\Bill Archive.aspx" />
     <Content Include="Restricted\Bill_View.aspx" />
     <Content Include="Restricted\View-transaction-log.aspx" />
@@ -265,7 +289,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="NWC\Web.config">
+    <Content Include="LIME\Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="ScotiaBank.dbml">
@@ -278,6 +302,13 @@
       <LastGenOutput>NCBJ.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="assets\images\hashes.json" />
+    <Content Include="assets\socicon\fonts\socicon.eot" />
+    <Content Include="assets\socicon\fonts\socicon.ttf" />
+    <Content Include="assets\socicon\fonts\socicon.woff" />
+    <Content Include="assets\web\assets\mobirise-icons\mobirise-icons.eot" />
+    <Content Include="assets\web\assets\mobirise-icons\mobirise-icons.ttf" />
+    <Content Include="assets\web\assets\mobirise-icons\mobirise-icons.woff" />
     <None Include="NCBJ.dbml.layout">
       <DependentUpon>NCBJ.dbml</DependentUpon>
     </None>
@@ -481,17 +512,18 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Bill_Generation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LinqQueries.cs" />
     <Compile Include="Models\RoleActions.cs" />
     <Compile Include="NCBJ.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NCBJ.dbml</DependentUpon>
     </Compile>
-    <Compile Include="NWC\Transaction-log-viewer.aspx.cs">
+    <Compile Include="LIME\Transaction-log-viewer.aspx.cs">
       <DependentUpon>Transaction-log-viewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NWC\Transaction-log-viewer.aspx.designer.cs">
+    <Compile Include="LIME\Transaction-log-viewer.aspx.designer.cs">
       <DependentUpon>Transaction-log-viewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Restricted\Bill Archive.aspx.cs">
@@ -513,11 +545,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ScotiaBank.dbml</DependentUpon>
     </Compile>
-    <Compile Include="NWC\GenerateBill.aspx.cs">
+    <Compile Include="LIME\GenerateBill.aspx.cs">
       <DependentUpon>GenerateBill.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NWC\GenerateBill.aspx.designer.cs">
+    <Compile Include="LIME\GenerateBill.aspx.designer.cs">
       <DependentUpon>GenerateBill.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

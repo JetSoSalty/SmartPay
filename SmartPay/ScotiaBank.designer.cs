@@ -174,7 +174,12 @@ namespace SmartPay
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerid, acct_number, payment_amt, acct_balance, payment_time, transaction_type);
 			return ((int)(result.ReturnValue));
 		}
-	}
+
+        public static implicit operator ScotiaBankDataContext(NCBJDataContext v)
+        {
+            throw new NotImplementedException();
+        }
+    }
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.transaction_history")]
 	public partial class transaction_history : INotifyPropertyChanging, INotifyPropertyChanged
