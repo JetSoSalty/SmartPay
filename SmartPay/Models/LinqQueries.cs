@@ -87,7 +87,7 @@ namespace SmartPay.Models
         }
         
         /* put this section in code behind where needed*/
-        public void put_this_in_code_behind(int customer_id)
+        public static void put_this_in_code_behind(int customer_id)
         {
             //To use method to populate a gridview in a partial class(aka code behind) for example you can do something like this
             //get the bill

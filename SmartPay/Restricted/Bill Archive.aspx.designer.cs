@@ -13,6 +13,33 @@ namespace SmartPay.Restricted {
     public partial class Bill_Archive {
         
         /// <summary>
+        /// CustLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CustLbl;
+        
+        /// <summary>
+        /// cust_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cust_ID;
+        
+        /// <summary>
+        /// searchbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button searchbtn;
+        
+        /// <summary>
         /// BillArchive control.
         /// </summary>
         /// <remarks>

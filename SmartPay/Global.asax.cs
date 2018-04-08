@@ -21,6 +21,15 @@ namespace SmartPay
             // Create the custom role and user.
             RoleActions roleActions = new RoleActions();
             roleActions.AddUserAndRole();
+
+            RegisterRoutes(RouteTable.Routes);
+        }
+
+        void RegisterRoutes(RouteCollection routes)
+        {
+            routes.MapPageRoute("","SmartPay","~/landing.aspx");
+            routes.MapPageRoute("", "SmartPay/About", "~/About.aspx");
+            routes.MapPageRoute("", "SmartPay/ContactUs", "~/Contact.aspx");
         }
     }
 }

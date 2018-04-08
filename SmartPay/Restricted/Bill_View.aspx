@@ -5,5 +5,8 @@
     </div>
     <div class="container-fluid">
         <!-- Some type of view here -->
+        <asp:GridView ID="BillViewGV" runat="server"></asp:GridView>
+
+
     </div>
 </asp:Content>
