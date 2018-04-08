@@ -257,7 +257,6 @@
     <Content Include="images\logo.png" />
     <Content Include="images\Slide_2.jpg" />
     <Content Include="images\carousel2.jpg" />
-    <Content Include="landing.aspx" />
     <Content Include="Maintenance\Default.aspx" />
     <Content Include="LIME\GenerateBill.aspx" />
     <Content Include="LIME\Transaction-log-viewer.aspx" />
@@ -499,13 +498,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="landing.aspx.cs">
-      <DependentUpon>landing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="landing.aspx.designer.cs">
-      <DependentUpon>landing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Maintenance\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
