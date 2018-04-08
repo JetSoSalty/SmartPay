@@ -13,6 +13,11 @@ namespace SmartPay
             var settings = new FriendlyUrlSettings();
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
+            routes.MapPageRoute("", "Default", "~/Default.aspx");
+            routes.MapPageRoute("","About","~/About.aspx");
+            routes.MapPageRoute("","Contact","~/Contact.aspx");
+            routes.MapPageRoute("","Register","~/Account/Register.aspx");
+            routes.MapPageRoute("","Login","~/Account/Login.aspx");
         }
     }
 }
