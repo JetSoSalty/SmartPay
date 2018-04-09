@@ -7,7 +7,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Smart Pay</title>
-
+    <script type="text/javascript">
+        function DisableBackButton() {
+            window.history.forward()
+        }
+        DisableBackButton();
+        window.onload = DisableBackButton;
+        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+        window.onunload = function () { void (0) }
+    </script>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -63,14 +71,14 @@
         </asp:ScriptManager>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top transparent bg-color">
-            <a class="navbar-brand" href="Default.aspx">
+            <a class="navbar-brand" href="../Default.aspx">
                 <img src="../images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">Smart Pay</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" runat="server" href="~/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" runat="server" href="~/Default">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" runat="server" href="~/About">About</a>
                     <a class="nav-item nav-link" runat="server" href="~/Contact">Contact</a>
                     <a class="nav-item nav-link" runat="server" id="UserControl" visible="false" href="~/Maintenance/Default.aspx">User Control</a>
@@ -101,93 +109,95 @@
             <hr />
             <footer>
                 <section class="cid-qOuRqNXDyU" id="footer1-g">
-    <div class="container">
-        <div class="media-container-row content text-white">
-            <div class="col-12 col-md-3">
-                <div class="media-wrap">
-                        <img src="../assets/images/mbr-192x128.jpg" alt="Mobirise" title="">
-                </div>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Address
-                </h5>
-                <p class="mbr-text">
-                    1234 Street Name
-                    <br>City, AA 99999
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Contacts
-                </h5>
-                <p class="mbr-text">
-                    Email: support@smartpay.com
-                    <br>Phone: +1 (0) 000 0000 001
-                    <br>Fax: +1 (0) 000 0000 002
-                </p>
-            </div>
-            <div class="col-12 col-md-3 mbr-fonts-style display-7">
-                <h5 class="pb-3">
-                    Links
-                </h5>
-                <p class="mbr-text">
-                    <a class="text-primary" href="#">Apple</a>
-                    <br><a class="text-primary" href="#">Pie</a>
-                    <br><a class="text-primary" href="#">Piece of Plum</a>
-                </p>
-            </div>
-        </div>
-        <div class="footer-lower">
-            <div class="media-container-row">
-                <div class="col-sm-12">
-                    <hr>
-                </div>
-            </div>
-            <div class="media-container-row mbr-white">
-                <div class="col-sm-6 copyright">
-                    <p class="mbr-text mbr-fonts-style display-7">
-                        &copy; <%: DateTime.Now.Year %> - Made by Team10 - All Rights Reserved
-                    </p>
-                </div>
-                <div class="col-md-6">
-                    <div class="social-list align-right">
-                        <div class="soc-item">
-                            
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-twitter socicon"></span>
-                            
+                    <div class="container">
+                        <div class="media-container-row content text-white">
+                            <div class="col-12 col-md-3">
+                                <div class="media-wrap">
+                                    <img src="../assets/images/mbr-192x128.jpg" alt="Mobirise" title="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                                <h5 class="pb-3">Address
+                                </h5>
+                                <p class="mbr-text">
+                                    1234 Street Name
+                    <br>
+                                    City, AA 99999
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                                <h5 class="pb-3">Contacts
+                                </h5>
+                                <p class="mbr-text">
+                                    Email: support@smartpay.com
+                    <br>
+                                    Phone: +1 (0) 000 0000 001
+                    <br>
+                                    Fax: +1 (0) 000 0000 002
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-3 mbr-fonts-style display-7">
+                                <h5 class="pb-3">Links
+                                </h5>
+                                <p class="mbr-text">
+                                    <a class="text-primary" href="#">Apple</a>
+                                    <br>
+                                    <a class="text-primary" href="#">Pie</a>
+                                    <br>
+                                    <a class="text-primary" href="#">Piece of Plum</a>
+                                </p>
+                            </div>
                         </div>
-                        <div class="soc-item">
-                            
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
-                            
-                        </div>
-                        <div class="soc-item">
-                            
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>
-                            
-                        </div>
-                        <div class="soc-item">
-                            
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
-                            
-                        </div>
-                        <div class="soc-item">
-                            
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-googleplus socicon"></span>
-                            
-                        </div>
-                        <div class="soc-item">
-                            
-                                <span class="mbr-iconfont mbr-iconfont-social socicon-behance socicon"></span>
-                            
+                        <div class="footer-lower">
+                            <div class="media-container-row">
+                                <div class="col-sm-12">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="media-container-row mbr-white">
+                                <div class="col-sm-6 copyright">
+                                    <p class="mbr-text mbr-fonts-style display-7">
+                                        &copy; <%: DateTime.Now.Year %> - Made by Team10 - All Rights Reserved
+                                    </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="social-list align-right">
+                                        <div class="soc-item">
+
+                                            <span class="mbr-iconfont mbr-iconfont-social socicon-twitter socicon"></span>
+
+                                        </div>
+                                        <div class="soc-item">
+
+                                            <span class="mbr-iconfont mbr-iconfont-social socicon-facebook socicon"></span>
+
+                                        </div>
+                                        <div class="soc-item">
+
+                                            <span class="mbr-iconfont mbr-iconfont-social socicon-youtube socicon"></span>
+
+                                        </div>
+                                        <div class="soc-item">
+
+                                            <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon"></span>
+
+                                        </div>
+                                        <div class="soc-item">
+
+                                            <span class="mbr-iconfont mbr-iconfont-social socicon-googleplus socicon"></span>
+
+                                        </div>
+                                        <div class="soc-item">
+
+                                            <span class="mbr-iconfont mbr-iconfont-social socicon-behance socicon"></span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                </section>
             </footer>
         </div>
     </form>

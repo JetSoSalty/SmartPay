@@ -15,7 +15,7 @@
                 <p class="mbr-text pb-3 mbr-fonts-style display-5">
                     Pay your telephone bill with us to take advantage of our tailored offers today!
                 </p>
-                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="#">LEARN MORE</a>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="../About.aspx">LEARN MORE</a>
                     <a class="btn btn-md btn-white-outline display-4" href="../Account/Login.aspx">Get Started</a></div>
             </div>
         </div>
