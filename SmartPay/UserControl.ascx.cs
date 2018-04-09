@@ -13,5 +13,20 @@ namespace SmartPay
         {
 
         }
+
+        public int GetCustID
+        {
+            get
+            {
+
+                return Convert.ToInt32(CustID.Text);
+            }
+
+            set
+            {
+                CustID.Text = value.ToString();
+            }
+
+        }
     }
 }

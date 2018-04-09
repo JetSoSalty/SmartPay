@@ -19,7 +19,8 @@ namespace SmartPay.Restricted
         {
 
             int customer_id;
-            customer_id = Convert.ToInt32(cust_ID.Text);
+            
+            customer_id = Convert.ToInt32(UserControl1.GetCustID);
             //To use method to populate a gridview in a partial class(aka code behind) for example you can do something like this
             //get the bill
             var bills = Models.LinqQueries.view_billArchive(customer_id);

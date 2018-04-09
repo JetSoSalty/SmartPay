@@ -3,6 +3,9 @@
 <%@ Register Assembly="Custom_Server_Control" Namespace="Custom_Server_Control" TagPrefix="cc1" %>
 
 
+<%@ Register src="../UserControl.ascx" tagname="UserControl" tagprefix="uc1" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="payment" class="container-fluid text-center">
         <h3 class="margin">Generate your bill here</h3>
@@ -18,12 +21,9 @@
             </div>
         </div>
         <div class="form-group">
-            <asp:Label AssociatedControlID="CustID" runat="server" CssClass="col-md-2 control-label">Customer ID Number</asp:Label>
-            <div class="col-md-10">
-                <asp:TextBox ID="CustID" placeholder="Enter Customer's ID Number" CssClass="form-control" runat="server"></asp:TextBox>
-                <asp:RequiredFieldValidator runat="server" ControlToValidate="CustID" Display="Dynamic"
-                    CssClass="text-danger" ErrorMessage="The Customer's ID is required." />
-            </div>
+            
+            <uc1:UserControl ID="UserControl1" runat="server" />
+            
         </div>
 
         <div class="form-group">

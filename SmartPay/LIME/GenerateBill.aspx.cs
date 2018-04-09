@@ -17,7 +17,7 @@ namespace SmartPay.NWC
         protected void payment_click(object sender, EventArgs e)
         {
             //for later use just incase you need it
-            Session["Customer_ID"] = CustID.Text;
+            Session["Customer_ID"] = UserControl1.GetCustID;
             Session["Customer_Name"] = FullName.Text;
 
             int x = 0;
