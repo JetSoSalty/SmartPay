@@ -11,10 +11,9 @@
     <div>
         <h1>Bill Archive</h1>
 
-        <%--Use control for textbox and label--%>
-      
+             
 
-
+        <%--User control used to display label , textbox and validation message--%>
         <uc1:UserControl ID="UserControl1" runat="server" />
       
 

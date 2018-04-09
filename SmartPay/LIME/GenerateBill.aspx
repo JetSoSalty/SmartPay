@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="form-group">
-            
+            <%--User control used to display label , textbox and validation message--%>
             <uc1:UserControl ID="UserControl1" runat="server" />
             
         </div>
