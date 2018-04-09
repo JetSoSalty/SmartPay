@@ -12,6 +12,6 @@ namespace SmartPay.Models
         public String Cust_name { get; set; }
         public DateTime StatementDate { get; set; }
         public DateTime Due_date { get; set; }
-        public float amt { get; set; }
+        public decimal amt { get; set; }
     }
 }

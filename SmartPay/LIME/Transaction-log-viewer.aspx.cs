@@ -11,7 +11,9 @@ namespace SmartPay.NWC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            NCBJDataContext dbcontext = new NCBJDataContext();
+            TransGV.DataSource = dbcontext.nwc_Transaction_logs;
+            TransGV.DataBind();
         }
     }
 }

@@ -11,7 +11,9 @@ namespace SmartPay.Restricted
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ScotiaBankDataContext dbcontext = new ScotiaBankDataContext();
+            TransGV.DataSource = dbcontext.transaction_histories;
+            TransGV.DataBind();
         }
     }
 }

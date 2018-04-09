@@ -14,6 +14,10 @@ namespace SmartPay.Restricted
         protected void Page_Load(object sender, EventArgs e)
         {
             //your linq select code or whatever here...
+
+            ScotiaBankDataContext dbcontext = new ScotiaBankDataContext();
+            BillViewGV.DataSource = dbcontext.Bills;
+            BillViewGV.DataBind();
         }
     }
 }
