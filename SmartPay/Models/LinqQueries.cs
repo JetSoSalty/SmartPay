@@ -103,6 +103,32 @@ namespace SmartPay.Models
 
            // gridview.Datasource = bills;
            // gridview.DataBind();
-            }
+        }
+
+        public static int get_User_acct(int userid)
+        {
+            int Acct_Num = (from cust in scotiaB.Accounts
+                          where cust.cust_number == userid
+                          select cust.Account_number).FirstOrDefault<int>();
+            return Acct_Num;
+        }
+
+        public static Decimal get_user_balance(int userid)
+        {
+            Decimal Acct_balance = (from cust in scotiaB.Accounts
+                            where cust.cust_number == userid
+                            select cust.Acct_balance).FirstOrDefault<Decimal>();
+            return Acct_balance;
+        }
+
+        public static int get_lime_balance(int userid)
+        {
+            NCBJDataContext ncb = new NCBJDataContext();
+
+            int Acct_balance = (from cust in ncb.nwc_Accounts
+                                    where cust.Cust_num == userid
+                                    select cust.Balance).FirstOrDefault<int>();
+            return Acct_balance;
+        }
     }
 }

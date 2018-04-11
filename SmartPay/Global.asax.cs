@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Microsoft.AspNet.FriendlyUrls;
 using System.Web.Security;
 using System.Web.SessionState;
 

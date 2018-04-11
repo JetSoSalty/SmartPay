@@ -52,8 +52,8 @@
       <Column Name="cust_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Acct_balance" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Account_type_acctype_Id" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
-      <Association Name="Account_AccountCustomer" Member="AccountCustomers" ThisKey="Account_number" OtherKey="Accounts_Account_number" Type="AccountCustomer" />
-      <Association Name="Account_type_Account" Member="Account_type" ThisKey="Account_type_acctype_Id" OtherKey="acctype_Id" Type="Account_type" IsForeignKey="true" />
+      <Association Name="Accounts_AccountCustomer" Member="AccountCustomers" ThisKey="Account_number" OtherKey="Accounts_Account_number" Type="AccountCustomer" />
+      <Association Name="Account_type_Accounts" Member="Account_type" ThisKey="Account_type_acctype_Id" OtherKey="acctype_Id" Type="Account_type" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Account_type" Member="Account_types">
@@ -61,14 +61,14 @@
       <Column Name="acctype_Id" Type="System.String" DbType="NVarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="acctype" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
       <Column Name="InterestRate" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Association Name="Account_type_Account" Member="Accounts" ThisKey="acctype_Id" OtherKey="Account_type_acctype_Id" Type="Accounts" />
+      <Association Name="Account_type_Accounts" Member="Accounts" ThisKey="acctype_Id" OtherKey="Account_type_acctype_Id" Type="Accounts" />
     </Type>
   </Table>
   <Table Name="dbo.AccountCustomer" Member="AccountCustomers">
     <Type Name="AccountCustomer">
       <Column Name="Accounts_Account_number" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Customers_Cust_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Account_AccountCustomer" Member="Accounts" Storage="_Account" ThisKey="Accounts_Account_number" OtherKey="Account_number" Type="Accounts" IsForeignKey="true" />
+      <Association Name="Accounts_AccountCustomer" Member="Accounts" Storage="_Account" ThisKey="Accounts_Account_number" OtherKey="Account_number" Type="Accounts" IsForeignKey="true" />
       <Association Name="Customer_AccountCustomer" Member="Customer" ThisKey="Customers_Cust_Id" OtherKey="Cust_Id" Type="Customer" IsForeignKey="true" />
     </Type>
   </Table>
@@ -80,6 +80,7 @@
       <Column Name="Due_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Bill_Amt" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Customer_Cust_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Paid" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
       <Association Name="Customer_Bill" Member="Customer" ThisKey="Customer_Cust_Id" OtherKey="Cust_Id" Type="Customer" IsForeignKey="true" />
     </Type>
   </Table>

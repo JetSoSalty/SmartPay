@@ -44,6 +44,8 @@ namespace SmartPay.NWC
 
             /* if there's a problem with the scotiabank datacontext check the spelling for Account(s)
              hopefully there won't be tho...*/
+
+            Models.LinqQueries.Cust_genbill(bill.Cust_id, bill.Cust_name, bill.StatementDate, bill.Due_date, bill.amt);
         }
     }
 }

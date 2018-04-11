@@ -73,7 +73,7 @@ namespace SmartPay
             {
                 UserControl.Visible = true;
             }
-            else if (HttpContext.Current.User.IsInRole("LIME"))
+            else if (HttpContext.Current.User.IsInRole("Staff"))
             {
                 LIME1.Visible = true;
             }
