@@ -4,14 +4,18 @@ using System.Web.UI;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
+using System.Linq;
 using SmartPay.Models;
 
 namespace SmartPay.Account
 {
     public partial class Login : Page
     {
+        ScotiaBankDataContext scotiaB = new ScotiaBankDataContext();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             RegisterHyperLink.NavigateUrl = "Register";
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
@@ -30,6 +34,12 @@ namespace SmartPay.Account
                 // Validate the user password
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
+
+                var ID_Num = (from cust in scotiaB.Customers
+                              where cust.cust_name == Username.Text
+                              select cust.Cust_Id).FirstOrDefault<int>();
+
+                Session["Customer_ID"] = ID_Num;//For use through out the program
 
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
