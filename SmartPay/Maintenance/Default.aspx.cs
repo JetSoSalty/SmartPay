@@ -64,6 +64,17 @@ namespace SmartPay.Maintenance
 
             if (result.Succeeded) Reload();
         }
+        public void dvRoles_UpdateItem(string Id)
+        {
+            IdentityRole role = (from r in roleMgr.Roles
+                                 where r.Id == Id
+                                 select r).SingleOrDefault();
+            TryUpdateModel(role);
+
+            IdentityResult result = roleMgr.Update(role);
+
+            if (result.Succeeded) Reload();
+        }
 
         // Insert methods
         public void dvUsers_InsertItem()

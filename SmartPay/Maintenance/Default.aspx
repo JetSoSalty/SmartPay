@@ -15,7 +15,7 @@
                     <asp:BoundField HeaderText="Email" DataField="Email" />
                     <asp:TemplateField HeaderText="Roles">
                         <ItemTemplate>
-                            <asp:Label runat="server" ID="Role" Text=""></asp:Label>
+                            <asp:Label runat="server" Text="<%# ListRoles(Item.Roles) %>"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:CommandField ShowSelectButton="true" />
