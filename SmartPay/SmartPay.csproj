@@ -260,6 +260,7 @@
     <Content Include="Maintenance\Default.aspx" />
     <Content Include="LIME\GenerateBill.aspx" />
     <Content Include="LIME\Transaction-log-viewer.aspx" />
+    <Content Include="Models\WebService.asmx" />
     <Content Include="Restricted\Bill Archive.aspx" />
     <Content Include="Restricted\Bill_View.aspx" />
     <Content Include="Restricted\View-transaction-log.aspx" />
@@ -515,6 +516,10 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LinqQueries.cs" />
     <Compile Include="Models\RoleActions.cs" />
+    <Compile Include="Models\WebService.asmx.cs">
+      <DependentUpon>WebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NCBJ.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -622,6 +627,9 @@
     <EmbeddedResource Include="Migrations\201802242229544_InitialCreate.resx">
       <DependentUpon>201802242229544_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
