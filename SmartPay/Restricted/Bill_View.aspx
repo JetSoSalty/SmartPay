@@ -5,5 +5,10 @@
     </div>
     <div class="container-fluid">
         <!-- Some type of view here -->
+        <asp:GridView ID="BillViewGV" CssClass="table table-bordered table-responsive table-hover table-striped" runat="server"></asp:GridView>
+
+        <div class="col-md-10">
+            <asp:Button runat="server" Text="Pay Bill" CssClass="btn btn-outline-primary" OnClick="PayBill_Click" />
+        </div>
     </div>
 </asp:Content>

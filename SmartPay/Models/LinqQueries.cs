@@ -11,7 +11,7 @@ namespace SmartPay.Models
         static ScotiaBankDataContext scotiaB = new ScotiaBankDataContext();// I have to keep this contaxt open in order to return table for bill view
 
         /*These are for nwc*/
-        public void Generate_bill(int customer_id, String name, DateTime Statement_date, DateTime Due_date, Decimal Bill_amt)//the generate bill stored procedure needs 
+        public static void Generate_bill(int customer_id, String name, DateTime Statement_date, DateTime Due_date, Decimal Bill_amt)//the generate bill stored procedure needs 
         {
             using ( NCBJDataContext ncb = new NCBJDataContext())
             {
@@ -28,7 +28,7 @@ namespace SmartPay.Models
                 
         }
 
-        public void Recieve_Payments(int cust_id, int acct_num, Decimal Pay_amt, Decimal Acct_balance, DateTime Payment_date, String trans_type)
+        public static void Recieve_Payments(int cust_id, int acct_num, Decimal Pay_amt, Decimal Acct_balance, DateTime Payment_date, String trans_type)
         {
             using (NCBJDataContext ncb = new NCBJDataContext())
             {
@@ -44,7 +44,7 @@ namespace SmartPay.Models
         }
 
         /*For customer*/
-        public void Cust_genbill(int customer_id, String name, DateTime Statement_date, DateTime Due_date, Decimal Bill_amt)
+        public static void Cust_genbill(int customer_id, String name, DateTime Statement_date, DateTime Due_date, Decimal Bill_amt)
         {
             using (ScotiaBankDataContext scotia = new ScotiaBankDataContext())// these were created long ago using linq to sql  look for .dbml extensions
             {
@@ -60,7 +60,7 @@ namespace SmartPay.Models
             }
         }
 
-        public void Make_payment(int cust_id, int acct_num, Decimal Pay_amt, Decimal Acct_balance, DateTime Payment_date, String trans_type)
+        public static void Make_payment(int cust_id, int acct_num, Decimal Pay_amt, Decimal Acct_balance, DateTime Payment_date, String trans_type)
         {
             using (ScotiaBankDataContext scotia = new ScotiaBankDataContext())
             {
@@ -87,7 +87,7 @@ namespace SmartPay.Models
         }
         
         /* put this section in code behind where needed*/
-        public void put_this_in_code_behind(int customer_id)
+        public static void put_this_in_code_behind(int customer_id)
         {
             //To use method to populate a gridview in a partial class(aka code behind) for example you can do something like this
             //get the bill
@@ -103,6 +103,32 @@ namespace SmartPay.Models
 
            // gridview.Datasource = bills;
            // gridview.DataBind();
-            }
+        }
+
+        public static int get_User_acct(int userid)
+        {
+            int Acct_Num = (from cust in scotiaB.Accounts
+                          where cust.cust_number == userid
+                          select cust.Account_number).FirstOrDefault<int>();
+            return Acct_Num;
+        }
+
+        public static Decimal get_user_balance(int userid)
+        {
+            Decimal Acct_balance = (from cust in scotiaB.Accounts
+                            where cust.cust_number == userid
+                            select cust.Acct_balance).FirstOrDefault<Decimal>();
+            return Acct_balance;
+        }
+
+        public static int get_lime_balance(int userid)
+        {
+            NCBJDataContext ncb = new NCBJDataContext();
+
+            int Acct_balance = (from cust in ncb.nwc_Accounts
+                                    where cust.Cust_num == userid
+                                    select cust.Balance).FirstOrDefault<int>();
+            return Acct_balance;
+        }
     }
 }

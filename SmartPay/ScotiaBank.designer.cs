@@ -174,12 +174,7 @@ namespace SmartPay
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), customerid, acct_number, payment_amt, acct_balance, payment_time, transaction_type);
 			return ((int)(result.ReturnValue));
 		}
-
-        public static implicit operator ScotiaBankDataContext(NCBJDataContext v)
-        {
-            throw new NotImplementedException();
-        }
-    }
+	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.transaction_history")]
 	public partial class transaction_history : INotifyPropertyChanging, INotifyPropertyChanged
@@ -1189,7 +1184,7 @@ namespace SmartPay
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_AccountCustomer", Storage="_AccountCustomers", ThisKey="Account_number", OtherKey="Accounts_Account_number")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Accounts_AccountCustomer", Storage="_AccountCustomers", ThisKey="Account_number", OtherKey="Accounts_Account_number")]
 		public EntitySet<AccountCustomer> AccountCustomers
 		{
 			get
@@ -1202,7 +1197,7 @@ namespace SmartPay
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_type_Account", Storage="_Account_type", ThisKey="Account_type_acctype_Id", OtherKey="acctype_Id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_type_Accounts", Storage="_Account_type", ThisKey="Account_type_acctype_Id", OtherKey="acctype_Id", IsForeignKey=true)]
 		public Account_type Account_type
 		{
 			get
@@ -1361,7 +1356,7 @@ namespace SmartPay
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_type_Account", Storage="_Accounts", ThisKey="acctype_Id", OtherKey="Account_type_acctype_Id")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_type_Accounts", Storage="_Accounts", ThisKey="acctype_Id", OtherKey="Account_type_acctype_Id")]
 		public EntitySet<Accounts> Accounts
 		{
 			get
@@ -1486,7 +1481,7 @@ namespace SmartPay
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Account_AccountCustomer", Storage="_Account", ThisKey="Accounts_Account_number", OtherKey="Account_number", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Accounts_AccountCustomer", Storage="_Account", ThisKey="Accounts_Account_number", OtherKey="Account_number", IsForeignKey=true)]
 		public Accounts Accounts
 		{
 			get
@@ -1593,6 +1588,8 @@ namespace SmartPay
 		
 		private int _Customer_Cust_Id;
 		
+		private string _Paid;
+		
 		private EntityRef<Customer> _Customer;
 		
     #region Extensibility Method Definitions
@@ -1611,6 +1608,8 @@ namespace SmartPay
     partial void OnBill_AmtChanged();
     partial void OnCustomer_Cust_IdChanging(int value);
     partial void OnCustomer_Cust_IdChanged();
+    partial void OnPaidChanging(string value);
+    partial void OnPaidChanged();
     #endregion
 		
 		public Bill()
@@ -1739,6 +1738,26 @@ namespace SmartPay
 					this._Customer_Cust_Id = value;
 					this.SendPropertyChanged("Customer_Cust_Id");
 					this.OnCustomer_Cust_IdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paid", DbType="NVarChar(4)")]
+		public string Paid
+		{
+			get
+			{
+				return this._Paid;
+			}
+			set
+			{
+				if ((this._Paid != value))
+				{
+					this.OnPaidChanging(value);
+					this.SendPropertyChanging();
+					this._Paid = value;
+					this.SendPropertyChanged("Paid");
+					this.OnPaidChanged();
 				}
 			}
 		}

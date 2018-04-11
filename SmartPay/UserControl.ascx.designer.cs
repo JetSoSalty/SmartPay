@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartPay.NWC {
+namespace SmartPay {
     
     
-    public partial class GenerateBill {
+    public partial class UserControl {
         
         /// <summary>
-        /// FullName control.
+        /// CustNumberlbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FullName;
+        protected global::System.Web.UI.WebControls.Label CustNumberlbl;
         
         /// <summary>
-        /// UserControl1 control.
+        /// CustID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::SmartPay.UserControl UserControl1;
+        protected global::System.Web.UI.WebControls.TextBox CustID;
+        
+        /// <summary>
+        /// CustIDRfv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CustIDRfv;
     }
 }
